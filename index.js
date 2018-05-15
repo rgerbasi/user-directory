@@ -15,3 +15,17 @@ button.addEventListener('click',function(){
 
 });
 
+const form = document.getElementById('form');
+
+form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    document.querySelector('h2').textContent = document.querySelector('input').value;
+});
+
+/*
+let str = window.location.search;
+if(str != undefined){
+    str = str.substring(str.indexOf(form.getAttribute('name'))+form.getAttribute('name').length +1, str.length );
+    document.querySelector('h2').textContent = str;
+}
+*/
