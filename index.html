@@ -15,12 +15,28 @@
     <h3>This is the third heading</h3>
 
     <form id="form">
-        Text:<br>
-        <input type="text" name="textbox" id="textbox">
+        <p>
+            <label for="userName">Username</label>
+            <input type="text" name="userName" id="textbox1" autofocus>
+        </p>
+        <p>
+            <label for="age">Age</label>
+            <input type="number" name="age">
+        </p>
+        <p>
+            <label for="favoriteColor">Favorite color</label>
+            <input type="color" name="favoriteColor">
+        </p>
 
+        
+        <button type="submit">Submit</button>
+        <button type="reset">Clear</button>
 
     </form>
+    
+    <br><br>
 
+    <div id="users">Users<br></div>
 
     <script src="index.js"></script>
 
