@@ -17,15 +17,14 @@ const handleSubmit = function(ev) {
 
 form.addEventListener('submit', handleSubmit)
 
-
 //functions
 function renderList(userName, age, favoriteColor){
     const list = document.createElement('ul')
-  const nameItem = renderListItem('Name: ', userName)
-  const ageItem = renderListItem('Age: ', age)
-  const colorItem = renderListItem('Fav Color: ', '')
+  const nameItem = renderListItem('Name', userName)
+  const ageItem = renderListItem('Age', age)
+  const colorItem = renderListItem('Fav Color', renderColor())
 
-  colorItem.appendChild(renderColor())
+  //colorItem.appendChild(renderColor())
 
   list.appendChild(nameItem)
   list.appendChild(ageItem)
@@ -35,7 +34,13 @@ function renderList(userName, age, favoriteColor){
 }
 function renderListItem(stat, statValue){
     const listItem = document.createElement('li')
-    listItem.textContent = stat + statValue
+    listItem.textContent = `${stat}: `
+    try {
+        listItem.appendChild(statValue)
+    } catch (error) {
+        listItem.textContent += `${statValue}`
+    }
+
     return listItem;
 }
 function renderColor(){
