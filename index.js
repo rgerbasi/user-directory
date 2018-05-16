@@ -1,48 +1,52 @@
+const form = document.querySelector('form#userForm')
 
-//console.log('it werk');
+const handleSubmit = function(ev) {
+  ev.preventDefault()
+  const form = ev.target
+  const userName = form.userName.value
+  const age = form.age.value
+  const favoriteColor = form.favoriteColor.value
 
+  const users = document.querySelector('#users')
 
-const button = document.getElementById('buttonToClick');
+  const list = document.createElement('ul')
 
-button.addEventListener('click',function(){
-    const header = document.querySelector('h2');
-    const temp = header.textContent;
-    header.textContent = 'The button has been pressed';
-    
-    setTimeout( function(){
-        header.textContent = temp;
-    } , 1500);
+  const nameItem = document.createElement('li')
+  nameItem.textContent = `Name: ${userName}`
 
-});
+  const ageItem = document.createElement('li')
+  ageItem.textContent = `Age: ${age}`
 
-const form = document.getElementById('form');
+  const colorItem = document.createElement('li')
+  colorItem.textContent = 'Favorite Color: '
 
-form.addEventListener('submit', function(ev){
-    ev.preventDefault();
-    const userName = form.userName.value;
-    const age = form.age.value;
-    const userlist = document.querySelector('#users');
+  /*
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = favoriteColor
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
+  */
+  colorItem.appendChild(renderColor())
 
-    const p = document.createElement('p');
-    p.textContent = `${userName}, ${age}`;
-    //userlist.appendChild(p);
-    
-    const color = form.favoriteColor.value;
-    p.style.border = 'thick solid '+`${color}`;
-    p.style.textAlign = 'center';
-    //p.style.color = `${color}`;
+  list.appendChild(nameItem)
+  list.appendChild(ageItem)
+  list.appendChild(colorItem)
 
-    userlist.appendChild(p);
+  users.appendChild(list)
 
-    form.reset();
-    form.userName.focus();
-
-});
-
-/*
-let str = window.location.search;
-if(str != undefined){
-    str = str.substring(str.indexOf(form.getAttribute('name'))+form.getAttribute('name').length +1, str.length );
-    document.querySelector('h2').textContent = str;
+  form.reset()
+  form.userName.focus()
 }
-*/
+
+form.addEventListener('submit', handleSubmit)
+
+
+//functions
+function renderColor(){
+    const colorDiv = document.createElement('div')
+    colorDiv.style.backgroundColor = form.favoriteColor.value
+    colorDiv.style.width = '6rem'
+    colorDiv.style.height = '3rem'
+
+    return colorDiv
+}

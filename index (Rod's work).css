@@ -1,0 +1,28 @@
+/*
+body{
+    font-family: sans-serif;
+    position: fixed;
+    /* trying to center the page
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+    margin: auto;
+}
+
+h1,h2,h3{
+    font-size: 200%;
+    text-align: center;
+}
+
+button{
+    display: block;
+    margin: auto;
+}
+
+form{
+    align-content: center;
+}
+*/
+ul{
+    list-style-type: none;
+}

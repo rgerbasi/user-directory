@@ -8,3 +8,19 @@ Make button change the text of the heading
     Add a text input to the form
     Update the heading with the text that you typed in the text input
     
+Day 2
+
+    create a new function called renderColor that returns a div element
+    call that function when adding that div to colorItem
+
+    Bonus
+    create a new function called renderlistItem
+    use it to create the list items for each stat
+
+    Super Mega Bonus Credit
+    create a new function called render list
+    use it to create hte list for each person's stats
+    call render list item from render list, not directly from handle submit
+
+    ! do not resort to the use of innerHTML, keep using doc.createlement
+
