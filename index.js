@@ -9,9 +9,7 @@ const handleSubmit = function(ev) {
 
   const users = document.querySelector('#users')
 
-  const list = renderList(userName, age, favoriteColor);
-
-  users.appendChild(list)
+  users.appendChild(renderList(userName,age,favoriteColor))
 
   form.reset()
   form.userName.focus()
