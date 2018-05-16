@@ -3,13 +3,14 @@ const form = document.querySelector('form#userForm')
 const handleSubmit = function(ev) {
   ev.preventDefault()
   const form = ev.target
-  const userName = form.userName.value
-  const age = form.age.value
-  const favoriteColor = form.favoriteColor.value
+  const user = {
+      'Name': form.userName.value,
+      'Age': form.age.value,
+      'Favorite Color': renderColor(form.favoriteColor.value),
+  }
 
   const users = document.querySelector('#users')
-
-  users.appendChild(renderList(userName,age,favoriteColor))
+  users.appendChild(renderList(user))
 
   form.reset()
   form.userName.focus()
@@ -18,18 +19,11 @@ const handleSubmit = function(ev) {
 form.addEventListener('submit', handleSubmit)
 
 //functions
-function renderList(userName, age, favoriteColor){
+function renderList(user){
     const list = document.createElement('ul')
-  const nameItem = renderListItem('Name', userName)
-  const ageItem = renderListItem('Age', age)
-  const colorItem = renderListItem('Fav Color', renderColor())
-
-  //colorItem.appendChild(renderColor())
-
-  list.appendChild(nameItem)
-  list.appendChild(ageItem)
-  list.appendChild(colorItem)
-
+    for(var key in user){
+      list.appendChild(renderListItem(key, user[key]))
+  }
   return list
 }
 function renderListItem(stat, statValue){
@@ -38,14 +32,14 @@ function renderListItem(stat, statValue){
     try {
         listItem.appendChild(statValue)
     } catch (error) {
-        listItem.textContent += `${statValue}`
+        listItem.textContent += statValue
     }
 
     return listItem;
 }
-function renderColor(){
+function renderColor(color){
     const colorDiv = document.createElement('div')
-    colorDiv.style.backgroundColor = form.favoriteColor.value;
+    colorDiv.style.backgroundColor = color;
     colorDiv.style.width = '6rem'
     colorDiv.style.height = '3rem'
 
