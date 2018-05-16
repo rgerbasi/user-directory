@@ -20,7 +20,7 @@ form.addEventListener('submit', handleSubmit)
 
 //functions
 function renderList(user){
-    const list = document.createElement('ul')
+    const list = document.createElement('dl')
     for(var key in user){
       list.appendChild(renderListItem(key, user[key]))
   }
@@ -28,13 +28,19 @@ function renderList(user){
 }
 function renderListItem(stat, statValue){
     const listItem = document.createElement('li')
-    listItem.textContent = `${stat}: `
+    const term = document.createElement('dt')
+    term.textContent = stat;
+
+    const description = document.createElement('dd')
+
     try {
-        listItem.appendChild(statValue)
+        description.appendChild(statValue)
     } catch (error) {
-        listItem.textContent += statValue
+        description.textContent += statValue
     }
 
+    listItem.appendChild(term)
+    listItem.appendChild(description)
     return listItem;
 }
 function renderColor(color){

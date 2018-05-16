@@ -1,4 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
 body {
-    font-family: sans-serif;
+  font-family: Dosis, sans-serif;
+}
+  
+  dl li{
+    list-style: none;
+    margin: 1.5rem;
+  }
+ 
+  
+
+  main{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #userForm{
+    background-color: floralwhite;
+    padding: 1rem;
+
   }
   
+  button{
+    display: inline;
+    
+  }
