@@ -11,6 +11,10 @@ const handleSubmit = function(ev) {
 
   const list = document.createElement('ul')
 
+  const nameItem = renderListItem('Name: ', userName)
+  const ageItem = renderListItem('Age: ', age)
+  const colorItem = renderListItem('Fav Color: ', undefined)
+    /*
   const nameItem = document.createElement('li')
   nameItem.textContent = `Name: ${userName}`
 
@@ -20,7 +24,6 @@ const handleSubmit = function(ev) {
   const colorItem = document.createElement('li')
   colorItem.textContent = 'Favorite Color: '
 
-  /*
   const colorDiv = document.createElement('div')
   colorDiv.style.backgroundColor = favoriteColor
   colorDiv.style.width = '6rem'
@@ -44,9 +47,14 @@ form.addEventListener('submit', handleSubmit)
 //functions
 function renderColor(){
     const colorDiv = document.createElement('div')
-    colorDiv.style.backgroundColor = form.favoriteColor.value
+    colorDiv.style.backgroundColor = form.favoriteColor.value;
     colorDiv.style.width = '6rem'
     colorDiv.style.height = '3rem'
 
     return colorDiv
+}
+function renderListItem(stat, statValue){
+    const listItem = document.createElement('li')
+    listItem.textContent = stat + statValue
+    return listItem;
 }
