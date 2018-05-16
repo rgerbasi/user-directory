@@ -9,31 +9,7 @@ const handleSubmit = function(ev) {
 
   const users = document.querySelector('#users')
 
-  const list = document.createElement('ul')
-
-  const nameItem = renderListItem('Name: ', userName)
-  const ageItem = renderListItem('Age: ', age)
-  const colorItem = renderListItem('Fav Color: ', undefined)
-    /*
-  const nameItem = document.createElement('li')
-  nameItem.textContent = `Name: ${userName}`
-
-  const ageItem = document.createElement('li')
-  ageItem.textContent = `Age: ${age}`
-
-  const colorItem = document.createElement('li')
-  colorItem.textContent = 'Favorite Color: '
-
-  const colorDiv = document.createElement('div')
-  colorDiv.style.backgroundColor = favoriteColor
-  colorDiv.style.width = '6rem'
-  colorDiv.style.height = '3rem'
-  */
-  colorItem.appendChild(renderColor())
-
-  list.appendChild(nameItem)
-  list.appendChild(ageItem)
-  list.appendChild(colorItem)
+  const list = renderList(userName, age, favoriteColor);
 
   users.appendChild(list)
 
@@ -45,6 +21,25 @@ form.addEventListener('submit', handleSubmit)
 
 
 //functions
+function renderList(userName, age, favoriteColor){
+    const list = document.createElement('ul')
+  const nameItem = renderListItem('Name: ', userName)
+  const ageItem = renderListItem('Age: ', age)
+  const colorItem = renderListItem('Fav Color: ', '')
+
+  colorItem.appendChild(renderColor())
+
+  list.appendChild(nameItem)
+  list.appendChild(ageItem)
+  list.appendChild(colorItem)
+
+  return list
+}
+function renderListItem(stat, statValue){
+    const listItem = document.createElement('li')
+    listItem.textContent = stat + statValue
+    return listItem;
+}
 function renderColor(){
     const colorDiv = document.createElement('div')
     colorDiv.style.backgroundColor = form.favoriteColor.value;
@@ -52,9 +47,4 @@ function renderColor(){
     colorDiv.style.height = '3rem'
 
     return colorDiv
-}
-function renderListItem(stat, statValue){
-    const listItem = document.createElement('li')
-    listItem.textContent = stat + statValue
-    return listItem;
 }
